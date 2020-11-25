@@ -1,0 +1,265 @@
+
+body{
+
+margin: 0;
+width: 100%;
+height: 2800px;
+/* background-color: khaki; */
+
+
+}
+
+
+
+.prueba{
+margin: 0px;
+z-index: 2;
+background: url(./fondo.jpg);
+background-repeat: repeat-x;
+position: fixed;
+width: 3500px;
+height: 600px;
+animation: fondo 50s linear  infinite ;
+left: 0px;
+
+}
+
+
+
+
+
+.personajeCorriendo{
+
+position: fixed;
+top: 360px;
+left: 40%;
+width: 250px;
+height: 250px;
+margin: auto;
+
+
+/* background-color: orange; */
+
+background:url(./muñeco.png);
+background-position-y: 0;
+background-position-x: -2500px;
+
+animation-name: animacionCorrer;
+animation-duration: 0.8s;
+
+animation-timing-function: steps(10);
+animation-iteration-count: infinite;  
+
+}
+
+@keyframes animacionCorrer{
+0%{
+     background-position-x: 0px
+};
+100%{
+        background-position: -2501px;
+}}
+
+
+#pause:checked ~ .personajeCorriendo{
+
+    animation-name: animacionCorrer;
+    animation-play-state: paused;
+    background: url(./frente2.png);
+   background-repeat: no-repeat;
+   
+   
+
+
+
+}
+
+#play:checked ~ .personajeCorriendo{
+
+    animation-name: animacionCorrer;
+    animation-play-state: running;
+
+}
+
+
+#atras:checked ~ .personajeCorriendo{
+
+    animation-name: animacionCorrer;
+    animation-play-state: running;
+    transform: scaleX(-1)
+
+}
+
+p{
+
+  text-align: center;
+  font-size: 30px;
+  font-family: monospace;
+  
+}
+
+
+
+.numero1{
+  position: fixed;
+ 
+  
+   height: 200px;
+  width: 400px;
+  z-index: 10;
+  left: 50%;
+  top: 0%;
+  animation-name: uno;
+  animation-duration: 400s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: initial;
+  }
+
+  @keyframes uno{
+
+   0%{ 
+   
+left: 30%;
+  }
+       
+   50%{
+     
+     left: 70%;
+   }
+
+   100% {
+     
+left: 0%;
+    
+     
+   }
+  }
+
+
+.paloma1{
+ background: url(./paloma.png);
+ position: absolute;
+top: 150px;
+left: 300px;
+width: 250px;
+height: 250px;
+margin: auto;
+animation-name: paloma1;
+animation-duration: 1s;
+animation-timing-function: steps(10);
+animation-iteration-count: infinite;
+background-position-y: 0;
+background-position-x: -2500px;
+
+
+
+}
+@keyframes paloma1{
+  0%{
+       background-position-x: 0px
+  };
+  100%{
+          background-position: -2501px;
+  }}
+
+
+.paloma2{
+  background: url(./paloma.png);
+  position: absolute;
+ top: 100px;
+
+ left: 100px;
+ width: 250px;
+ height: 250px;
+ margin: auto;
+ z-index: 20;
+ background-position-y: 0;
+background-position-x: -2500px;
+
+ animation-name: paloma2;
+ animation-duration: 0.9s;
+ animation-timing-function: steps(10);
+ animation-iteration-count: infinite;
+ background-position-y: 0;
+ background-position-x: -2500px;
+ 
+}
+
+@keyframes paloma2{
+  0%{
+       background-position-x: 0px
+  };
+  100%{
+          background-position: -2501px;
+  }}
+
+
+
+.paloma3{
+  background: url(./paloma.png);
+  position: static;
+ top: 150px;
+ left: 20%;
+ width: 250px;
+ height: 250px;
+ margin: auto;
+
+ animation-name: paloma3;
+ animation-duration: 0.9s;
+ animation-timing-function: steps(10);
+ animation-iteration-count: infinite;
+ background-position-y: 0;
+background-position-x: -2500px;
+}
+
+@keyframes paloma3{
+  0%{
+       background-position-x: 0px;
+       
+  };
+  100%{
+          background-position: -2501px;
+          top: 56px;
+  }}  
+
+
+  .movimientoPaloma{
+
+position: fixed;
+ top: 0px;
+ left: 20%;
+ width: 250px;
+ height: 250px;
+ margin: auto;
+z-index: 10;
+
+animation-name: movPalomas;
+animation-duration: 70s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+  }
+
+  @keyframes movPalomas{
+
+    0%{
+      left: -350px;
+    }
+100%{
+  left: 2000px;
+}
+  }
+
+  .henry{
+position: relative;
+padding-top: 20px;
+
+  }
+
+  #atras:checked ~ .movimientoPaloma{
+
+    animation-name: animacionCorrer;
+    animation-play-state: running;
+    transform: scaleX(-1)
+
+}

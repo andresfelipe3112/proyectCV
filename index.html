@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+ 
+<div class="prueba">
+    <input type="radio" id="play" name="control">
+    <label for="play">play</label>
+    
+    <input type="radio" id="pause" name="control">
+    <label for="pause">pause</label>
+   
+    <input type="radio" id="atras" name="control">
+    <label for="pause">atras</label>
+
+    <div class="personajeCorriendo"></div>
+
+
+
+
+<div class="numero1">
+    <p>HOLA, me llamo Andrés Felipe y soy un  </p>
+    <img class="henry" src="./henry.png" alt="" srcset="">
+</div>
+
+
+
+<div class="movimientoPaloma">
+
+<div class="paloma1"></div>
+<div class="paloma2"></div>
+<div class="paloma3"></div>
+
+</div>
+
+<script>
+
+    
+    
+let movimiento = false;//Una variable bandera que usaremos para saber cuando lanzar la función de animación:
+let scrollEndCallback;//Una variable que se le asignará un setTimeout() para saber cuando acaba el scroll y lanzar otra función en ese caso:
+var lastScrollTop = 0;//La última posición conocida de scroll en la web, la usaremos para saber la dirección del scroll del usuario.
+
+
+
+let pause = document.getElementById("pause");  
+let play  = document.getElementById("play");
+let reverse = document.getElementById("atras")
+let a = document.getElementsByTagName("div");
+let st=0;
+
+
+console.log(st);
+console.log(a);
+
+if (movimiento===false) {
+    pause.click()
+}
+
+// SCROLL CALLBACK
+
+ 
+ window.addEventListener("wheel", scrollCallback);
+ window.addEventListener("scroll", scrollCallback);
+
+
+ function scrollCallback() {
+
+// RESET TICK TO FALSE
+
+// GET CURRENT SCROLL POSITION
+ st = window.scrollY ;// posicion actual
+ 
+
+if (st > lastScrollTop){
+    // DOWN SCROLL
+    playTimeline();
+} else if(st < lastScrollTop) {
+    // UP SCROLL
+    reverseTimeline();
+}
+
+// SAVE CURRENT SCROLLTOP
+lastScrollTop = st;
+
+// Y para saber cuando acaba el usuario de hacer scroll, preparamos una función a ejecutar con setTimeout().
+// Tendrá 66 milisegundos de espera antes de lanzarse dicha función, por lo que, mientras el usuario 
+// está haciendo scroll, la función update() se seguirá ejecutando mucho antes de 66 milisegundos 
+// y seguirá limpiando el setTimeout() antiguo.
+
+window.clearTimeout(scrollEndCallback);
+
+// SET NEW TIMEOUT TO TRIGGER SCROLLEND CALLBACK
+scrollEndCallback = setTimeout(function() {
+    // SCROLLEND
+    pauseTimeline();
+}, 200);
+
+//----
+
+
+a[0].style.left = -st +"px";
+
+//---------
+
+a[2].style.left = 1500 - st +"px";
+
+
+} 
+
+
+ 
+
+
+function playTimeline() {
+ 
+        play.click();
+
+}
+
+function reverseTimeline() {
+    
+    reverse.click()
+}
+
+
+function pauseTimeline() {
+    pause.click()
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+</script>
+    
+
+    
+</body>
+</html>
